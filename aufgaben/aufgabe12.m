@@ -1,19 +1,19 @@
-%a) Gl‰tten Sie das Testbildmuenzen.png morphologisch mit dem Ziel, das Rauschen zu entfernen.
-%Nutzen Sie hierzu strukturierende Elemente der Fenstergrˆﬂen5◊5und7◊7, die Sie mittels der
-%Funktion strel(ísquareí, width)erstellen kˆnnen. 
-%F¸hren Sie nachfolgend die morpholo-gische Gl‰ttung durch Anwendung entsprechender Grauwert-Opening 
+%a) Gl√§tten Sie das Testbildmuenzen.png morphologisch mit dem Ziel, das Rauschen zu entfernen.
+%Nutzen Sie hierzu strukturierende Elemente der Fenstergr√∂√üen5√ó5und7√ó7, die Sie mittels der
+%Funktion strel(‚Äôsquare‚Äô, width)erstellen k√∂nnen. 
+%F√ºhren Sie nachfolgend die morpholo-gische Gl√§ttung durch Anwendung entsprechender Grauwert-Opening 
 %(Funktion imopen(img,strucEl))und Grauwert-Closing(Funktion imclose(img, strucEl))Operationen aus.
 %Geben Sie die Ergebnisbilder auf dem Bildschirm aus.
 
-%b)Wenden Sie auf das erste Ergebnisbild eine weitere morphologische Gl‰ttung mit der Fenstergrˆﬂe 5◊5 an
+%b)Wenden Sie auf das erste Ergebnisbild eine weitere morphologische Gl√§ttung mit der Fenstergr√∂√üe 5√ó5 an
 %und geben Sie auch dieses Bild auf dem Bildschirm aus. Ist ein Unterschied zu dem Ergeb-nis mit der 
-%Fenstergrˆﬂe 7◊7 wahrnehmbar?
+%Fenstergr√∂√üe 7√ó7 wahrnehmbar?
 
 %c)Wie wirkt sich die Anwendung eines rechteckigen anstatt quadratischen Strukturelementes auf das
-%Ergebnisbild aus? F¸hren Sie hierzu die morphologische Gl‰ttung mit rechteckigen Strukturelementen
-%der Grˆﬂen 3◊7 und 7◊3 aus und begr¸nden Sie das Ergebnis.
+%Ergebnisbild aus? F√ºhren Sie hierzu die morphologische Gl√§ttung mit rechteckigen Strukturelementen
+%der Gr√∂√üen 3√ó7 und 7√ó3 aus und begr√ºnden Sie das Ergebnis.
 
-%d)F¸hren Sie auf dem mit Fenstergrˆﬂe 7◊7 gefilterten Bild eine Histogrammgl‰ttung durch und
+%d)F√ºhren Sie auf dem mit Fenstergr√∂√üe 7√ó7 gefilterten Bild eine Histogrammgl√§ttung durch und
 %geben Sie das Bild auf dem Bildschirm aus. Kann dadurch eine Verbesserung erzielt werden?
 
 function aufgabe12(filename, filtertype);
@@ -37,8 +37,21 @@ j = 1;
     
     %j = j+1;
 %end
-%falsch, da man beide Funktionen hintereinander ausf¸hren soll f¸r eine
-%morphologische Gl‰ttung!!!
+%falsch, da man beide Funktionen hintereinander ausf√ºhren soll f√ºr eine
+%morphologische Gl√§ttung!!!
+
+%general informations about morphological operations:
+
+%strel('square', i); 
+%--> strel object represents a flat morphological structuring element, 
+%which is an essential part of morphological dilation and erosion operation
+%square means that the strel has a square (quadratisch) form with width i
+
+%imclose
+%-->for morphological closing 
+
+%imopen
+%-->for morphological opening
 
 %a)
 image_smoothed_5 = imopen(imclose(imgOriginal, strel('square', 5)),strel('square',5));
@@ -72,7 +85,7 @@ subplot(2,1,2);
 imshow(image_smoothed_73);
     
 %d)
-%Histogrammausgleich nicht Histogrammgl‰ttung
+%Histogrammausgleich nicht Histogrammgl√§ttung
 figure(4);
 imshow(histeq(image_smoothed_7));
     
